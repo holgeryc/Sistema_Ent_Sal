@@ -7,6 +7,6 @@
 @section('content')
     <h1>Entrada</h1>
     @foreach($posts as $post)
-        {{ $post['title']}}
+        @dump($post);
     @endforeach
 @endsection

@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('correo');
-            $table->text('contraseña');
+            $table->string('Voucher');
+            $table->string('Nombre');
+            $table->string('Detalle');
+            $table->string('Monto');
             $table->timestamps();
         });
     }

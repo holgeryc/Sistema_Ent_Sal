@@ -26,12 +26,44 @@ class PostController extends Controller
     }
 
     public function store(Request $request){
+        $request->validate([
+            'voucher' => ['required'],
+            'nombre' => ['required'],
+            'detalle' => ['required'],
+            'monto' => ['required'],
+        ]);
         
         $post= new Post();
-        $post->correo=$request->title;
+        $post->Voucher=$request->voucher;
+        $post->Nombre=$request->nombre;
+        $post->Detalle=$request->detalle;
+        $post->Monto=$request->monto;
         $post->save();
         return $request;
         // return view('posts.store');
+    }
+
+    public function editar(Post $post){
+        return view('posts.editar', ['post'=>$post]);
+    }
+
+    public function update(Request $request, Post $post){
+        $request->validate([
+            'voucher' => ['required'],
+            'nombre' => ['required'],
+            'detalle' => ['required'],
+            'monto' => ['required'],
+        ]);
+        
+        $post->Voucher=$request->voucher;
+        $post->Nombre=$request->nombre;
+        $post->Detalle=$request->detalle;
+        $post->Monto=$request->monto;
+        $post->save();
+
+        session()->flash('status', 'Actualizado');
+
+        return $request;
     }
 
 }

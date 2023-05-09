@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('Voucher');
-            $table->string('Nombre');
-            $table->string('Detalle');
-            $table->string('Monto');
+            $table->double('Entrada');
+            $table->double('Salida')->nullable();
+            $table->double('Monto')->nullable();
             $table->timestamps();
         });
     }

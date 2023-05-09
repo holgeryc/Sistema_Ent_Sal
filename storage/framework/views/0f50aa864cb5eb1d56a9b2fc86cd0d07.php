@@ -10,7 +10,7 @@
     <form class="max-w-xl px-8 py-4 mx-auto bg-white rounded shadow dark:bg-slate-800" action="<?php echo e(route('posts.update', $post)); ?>" method="POST">
         <?php echo csrf_field(); ?> <?php echo method_field('PATCH'); ?>
         <label for="">
-            Voucher <br><input name="voucher" type="text" value="<?php echo e(old('voucher', $post->Voucher)); ?>">
+            Voucher <br><input name="voucher" type="text">
             <?php $__errorArgs = ['voucher'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -25,8 +25,8 @@ unset($__errorArgs, $__bag); ?>
         </label><br>
 
         <label for="">
-            Nombres y Apellidos <br><input name="nombre" type="text" value="<?php echo e(old('nombre', $post->Nombre)); ?>">
-            <?php $__errorArgs = ['nombre'];
+            Entrada <br><input name="entrada" type="double">
+            <?php $__errorArgs = ['entrada'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -40,8 +40,8 @@ unset($__errorArgs, $__bag); ?>
         </label><br>
 
         <label for="">
-            Detalle <br><input name="detalle" type="text" value="<?php echo e(old('detalle', $post->Detalle)); ?>">
-            <?php $__errorArgs = ['detalle'];
+            Salida <br><input name="salida" type="double">
+            <?php $__errorArgs = ['salida'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -55,7 +55,7 @@ unset($__errorArgs, $__bag); ?>
         </label><br>
 
         <label for="">
-            Monto <br><input name="monto" type="text" value="<?php echo e(old('monto', $post->Monto)); ?>">
+            Monto <br><input name="monto" type="double" disabled>
             <?php $__errorArgs = ['monto'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

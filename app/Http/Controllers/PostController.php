@@ -28,16 +28,16 @@ class PostController extends Controller
     public function store(Request $request){
         $request->validate([
             'voucher' => ['required'],
-            'nombre' => ['required'],
-            'detalle' => ['required'],
-            'monto' => ['required'],
+            'entrada' => ['required'],
+            'salida' => ['required'],
         ]);
+        
         
         $post= new Post();
         $post->Voucher=$request->voucher;
-        $post->Nombre=$request->nombre;
-        $post->Detalle=$request->detalle;
-        $post->Monto=$request->monto;
+        $post->Entrada=$request->entrada;
+        $post->Salida=$request->salida;
+        $post->Monto=resultado;
         $post->save();
         return $request;
         // return view('posts.store');
@@ -50,20 +50,27 @@ class PostController extends Controller
     public function update(Request $request, Post $post){
         $request->validate([
             'voucher' => ['required'],
-            'nombre' => ['required'],
-            'detalle' => ['required'],
-            'monto' => ['required'],
+            'entrada' => ['required'],
+            'salida' => ['required'],
         ]);
         
         $post->Voucher=$request->voucher;
-        $post->Nombre=$request->nombre;
-        $post->Detalle=$request->detalle;
+        $post->Entrada=$request->entrada;
+        // $post->Salida=$request->salida;
         $post->Monto=$request->monto;
         $post->save();
 
         session()->flash('status', 'Actualizado');
 
         return $request;
+    }
+
+    public function Sumar(Request $request){
+        // var valor_1=$request->entrada;
+        // var valor_2=$request->salida;
+
+        // var resultado=valor_1+valor_2;
+        
     }
 
 }

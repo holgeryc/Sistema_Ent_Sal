@@ -5,7 +5,7 @@
 <?php $__env->startSection('meta-description', 'Inicio meta description'); ?>
 
 <?php $__env->startSection('content'); ?>
-    <h1 class="my-4 font-serif text-3xl text-center text-sky-600 dark:text-sky-500"><?php echo e($post->title); ?>><?php echo e($post->voucher); ?></h1>
+    <h1 class="my-4 font-serif text-3xl text-center text-sky-600 dark:text-sky-500"><?php echo e($post->Monto); ?></h1>
     <div class="flex flex-col max-w-xl px-8 py-4 mx-auto bg-white rounded shadow h-96 dark:bg-slate-800">
         <!-- <p class="flex-1 leading-normal text-slate-600 dark:text-slate-400"><?php echo e($post->body); ?></p> -->
 

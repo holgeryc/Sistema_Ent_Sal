@@ -10,7 +10,7 @@
     <form class="max-w-xl px-8 py-4 mx-auto bg-white rounded shadow dark:bg-slate-800" action="{{route('posts.update', $post)}}" method="POST">
         @csrf @method('PATCH')
         <label for="">
-            Voucher <br><input name="voucher" type="text" value="{{old('voucher', $post->Voucher)}}">
+            Voucher <br><input name="voucher" type="text">
             @error('voucher')
                 <br>
                 <small style="color : red ">{{$message}}</small>
@@ -18,23 +18,23 @@
         </label><br>
 
         <label for="">
-            Nombres y Apellidos <br><input name="nombre" type="text" value="{{old('nombre', $post->Nombre)}}">
-            @error('nombre')
+            Entrada <br><input name="entrada" type="double">
+            @error('entrada')
                 <br>
                 <small style="color : red ">{{$message}}</small>
             @enderror
         </label><br>
 
         <label for="">
-            Detalle <br><input name="detalle" type="text" value="{{old('detalle', $post->Detalle)}}">
-            @error('detalle')
+            Salida <br><input name="salida" type="double">
+            @error('salida')
                 <br>
                 <small style="color : red ">{{$message}}</small>
             @enderror
         </label><br>
 
         <label for="">
-            Monto <br><input name="monto" type="text" value="{{old('monto', $post->Monto)}}">
+            Monto <br><input name="monto" type="double" disabled>
             @error('monto')
                 <br>
                 <small style="color : red ">{{$message}}</small>

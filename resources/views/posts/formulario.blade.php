@@ -17,23 +17,23 @@
         </label><br>
 
         <label for="">
-            Nombres y Apellidos <br><input name="nombre" type="text">
-            @error('nombre')
+            Entrada <br><input name="entrada" type="double">
+            @error('entrada')
                 <br>
                 <small style="color : red ">{{$message}}</small>
             @enderror
         </label><br>
 
         <label for="">
-            Detalle <br><input name="detalle" type="text">
-            @error('detalle')
+            Salida <br><input name="salida" type="double">
+            @error('salida')
                 <br>
                 <small style="color : red ">{{$message}}</small>
             @enderror
         </label><br>
 
         <label for="">
-            Monto <br><input name="monto" type="text">
+            Monto <br><input name="monto" type="double" disabled>
             @error('monto')
                 <br>
                 <small style="color : red ">{{$message}}</small>

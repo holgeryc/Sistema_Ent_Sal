@@ -25,7 +25,7 @@
     </head>
     <body class="bg-gray-100 text-gray-900 tracking-wider leading-normal">
     <div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2">
-        <div class="bg-green-400 bg-opacity-100 text-gray-100 text-center"><p class="text-xl">Datatables - Tailwind CSS</p></div>			
+        <div class="bg-green-400 bg-opacity-100 text-gray-100 text-center"><p class="text-xl">Tablas de Reportes</p></div>			
 			 <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">			 				
 				<table id="posts" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                 <thead>

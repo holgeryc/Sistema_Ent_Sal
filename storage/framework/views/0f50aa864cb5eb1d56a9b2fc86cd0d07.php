@@ -10,7 +10,7 @@
     <form class="max-w-xl px-8 py-4 mx-auto bg-white rounded shadow dark:bg-slate-800" action="<?php echo e(route('posts.update', $post)); ?>" method="POST">
         <?php echo csrf_field(); ?> <?php echo method_field('PATCH'); ?>
         <label for="">
-            Voucher <br><input name="voucher" type="text">
+            Voucher <br><input name="voucher" type="text" value="<?php echo e(old('voucher', $post->Voucher)); ?>">
             <?php $__errorArgs = ['voucher'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -25,7 +25,7 @@ unset($__errorArgs, $__bag); ?>
         </label><br>
 
         <label for="">
-            Entrada <br><input name="entrada" type="double">
+            Entrada <br><input name="entrada" type="double" value="<?php echo e(old('entrada', $post->Entrada)); ?>">
             <?php $__errorArgs = ['entrada'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -40,7 +40,7 @@ unset($__errorArgs, $__bag); ?>
         </label><br>
 
         <label for="">
-            Salida <br><input name="salida" type="double">
+            Salida <br><input name="salida" type="double" value="<?php echo e(old('salida', $post->Salida)); ?>">
             <?php $__errorArgs = ['salida'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -55,7 +55,7 @@ unset($__errorArgs, $__bag); ?>
         </label><br>
 
         <label for="">
-            Monto <br><input name="monto" type="double" disabled>
+            Monto <br><input name="monto" type="double"  value="<?php echo e(old('monto', $post->Monto)); ?>"disabled>
             <?php $__errorArgs = ['monto'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

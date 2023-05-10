@@ -26,19 +26,21 @@ class PostController extends Controller
     }
 
     public function store(Request $request){
+        $resultado='';
         $request->validate([
             'voucher' => ['required'],
             'entrada' => ['required'],
             'salida' => ['required'],
         ]);
         
-        
+        $resultado= ($request->entrada)+($request->salida);
         $post= new Post();
         $post->Voucher=$request->voucher;
         $post->Entrada=$request->entrada;
         $post->Salida=$request->salida;
-        $post->Monto=resultado;
+        $post->Monto=$resultado;
         $post->save();
+        session()->flash('status', 'Datos creados');
         return $request;
         // return view('posts.store');
     }

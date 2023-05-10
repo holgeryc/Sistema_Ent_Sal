@@ -5,11 +5,14 @@
 @section('meta-description', 'Formulario para ingresar datos')
 
 @section('content')
+    
+    
     <h1 class="my-4 font-serif text-3xl text-center text-sky-600 dark:text-sky-500">Crear nuevo formulario</h1>
     <form class="max-w-xl px-8 py-4 mx-auto bg-white rounded shadow dark:bg-slate-800" action="{{route('posts.store')}}" method="POST">
+    
         @csrf
         <label for="">
-            Voucher <br><input name="voucher" type="text">
+            Voucher <br><input name="voucher" type="text" value="{{old('voucher')}}">
             @error('voucher')
                 <br>
                 <small style="color : red ">{{$message}}</small>
@@ -17,7 +20,7 @@
         </label><br>
 
         <label for="">
-            Entrada <br><input name="entrada" type="double">
+            Entrada <br><input name="entrada" type="double" value="{{old('entrada')}}">
             @error('entrada')
                 <br>
                 <small style="color : red ">{{$message}}</small>
@@ -25,7 +28,7 @@
         </label><br>
 
         <label for="">
-            Salida <br><input name="salida" type="double">
+            Salida <br><input name="salida" type="double" value="{{old('salida')}}">
             @error('salida')
                 <br>
                 <small style="color : red ">{{$message}}</small>
@@ -33,11 +36,11 @@
         </label><br>
 
         <label for="">
-            Monto <br><input name="monto" type="double" disabled>
-            @error('monto')
+            Monto <br><input name="monto" type="double"  value="{{old('monto')}}" disabled>
+            <!-- @error('monto')
                 <br>
                 <small style="color : red ">{{$message}}</small>
-            @enderror
+            @enderror -->
         </label><br>
         
         <div class="flex items-center justify-between mt-4">
@@ -50,3 +53,6 @@
         </div>
     </form>
 @endsection
+
+
+

@@ -19,30 +19,94 @@ class PostController extends Controller
         return view('posts.show', ['post'=>$post]);
     }
 
-    public function formulario(){
+    public function formularioE(){
 
-        return view('posts.formulario');
-        //  ['post'=>$post]);
+        return view('posts.formularioE');
     }
 
-    public function store(Request $request){
+    public function formularioS(){
+
+        return view('posts.formularioS');
+    }
+
+    public function storeE(Request $request){
+        
+        // $dato=Post::find(1);
+        $anterior = Post::latest()->first();
+        echo $anterior->Monto;
+        $valor=floatval($anterior->Monto);
         $resultado='';
         $request->validate([
-            'voucher' => ['required'],
-            'entrada' => ['required'],
-            'salida' => ['required'],
+            'fecha' => ['required'],
+            'nombre' => ['required'],
+            'detalle' => ['required'],
         ]);
         
-        $resultado= ($request->entrada)+($request->salida);
+        
+        $resultado = $valor+ $request->entrada ;
+        
+        
+        // $resultado= ($request->entrada)+($request->salida);
         $post= new Post();
+        $post->Fecha=$request->fecha;
         $post->Voucher=$request->voucher;
+        $post->Nombre=$request->nombre;
+        $post->Detalle=$request->detalle;
         $post->Entrada=$request->entrada;
+        $post->Monto=$resultado;
+        $post->save();
+        session()->flash('status', 'Datos creados');
+        return $request;
+    }
+
+    // public function store()
+    // {
+    //     $this->validate([
+	// 	'Fecha' => 'required',
+	// 	'RUC_Instituto' => 'required',
+	// 	'Activado' => 'required',
+    //     ]);
+	// 	$registroAnterior = Registro::where('RUC_Instituto', $this->RUC_Instituto)
+    //                        ->where('Fecha', '<=', $this->Fecha)
+    //                        ->orderByDesc('id')
+    //                        ->first();
+
+	// 	if (!$registroAnterior) {
+    // 		$saldoAnterior = 0;
+	// 	} else {
+   	// 		$saldoAnterior = $registroAnterior->Saldo;
+	// 	}
+	// 	$Saldo = $saldoAnterior + $this->Entrada - $this->Salida;
+    // }
+    public function storeS(Request $request){
+        
+        // $dato=Post::find(1);
+        $anterior = Post::latest()->first();
+        echo $anterior->Monto;
+        $valor=floatval($anterior->Monto);
+        $resultado='';
+        $request->validate([
+            'fecha' => ['required'],
+            'nombre' => ['required'],
+            'detalle' => ['required'],
+        ]);
+        
+        
+        $resultado = $valor- $request->salida ;
+        
+        
+        // $resultado= ($request->entrada)+($request->salida);
+        $post= new Post();
+        $post->Fecha=$request->fecha;
+        $post->Cheque=$request->cheque;
+        $post->CP=$request->cp;
+        $post->Nombre=$request->nombre;
+        $post->Detalle=$request->detalle;
         $post->Salida=$request->salida;
         $post->Monto=$resultado;
         $post->save();
         session()->flash('status', 'Datos creados');
         return $request;
-        // return view('posts.store');
     }
 
     public function editar(Post $post){

@@ -13,8 +13,13 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('Voucher');
-            $table->double('Entrada');
+            $table->date('Fecha');
+            $table->string('Voucher')->nullable();
+            $table->string('Cheque')->nullable();
+            $table->double('CP')->nullable();
+            $table->string('Nombre');
+            $table->string('Detalle');
+            $table->double('Entrada')->nullable();
             $table->double('Salida')->nullable();
             $table->double('Monto')->nullable();
             $table->timestamps();

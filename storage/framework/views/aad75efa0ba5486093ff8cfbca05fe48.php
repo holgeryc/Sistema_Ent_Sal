@@ -7,7 +7,8 @@
 <?php $__env->startSection('content'); ?>
     <header class="px-6 py-4 space-y-2 text-center">
         <h1 class="font-serif text-3xl text-center text-sky-600 dark:text-sky-500">Entrada</h1>
-        <a  class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-center text-white uppercase transition duration-150 ease-in-out border border-transparent rounded-md dark:text-sky-200 bg-sky-800 hover:bg-sky-700 active:bg-sky-900 focus:outline-none focus:border-sky-900 focus:shadow-outline-sky" href="<?php echo e(route('posts.formulario')); ?>">Ingresos</a>
+        <a  class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-center text-white uppercase transition duration-150 ease-in-out border border-transparent rounded-md dark:text-sky-200 bg-sky-800 hover:bg-sky-700 active:bg-sky-900 focus:outline-none focus:border-sky-900 focus:shadow-outline-sky" href="<?php echo e(route('posts.formularioE')); ?>">Entrada</a>
+        <a  class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-center text-white uppercase transition duration-150 ease-in-out border border-transparent rounded-md dark:text-sky-200 bg-sky-800 hover:bg-sky-700 active:bg-sky-900 focus:outline-none focus:border-sky-900 focus:shadow-outline-sky" href="<?php echo e(route('posts.formularioS')); ?>">Salida</a>
 
     </header>
     <head>
@@ -29,17 +30,17 @@
 			 <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">			 				
 				<table id="posts" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                 <thead>
-                        <tr class="bg-indigo-400 bg-opacity-100 text-white">
-                            <th data-priority="1">Voucher</th>
-                            <!-- <th data-priority="2">N° Voucher</th>
-                            <th data-priority="3">N° Cheque</th>
-                            <th data-priority="4">C/P</th>
-                            <th data-priority="5">Nombres y Apellidos</th>
-                            <th data-priority="6">Detalle</th> -->
-                            <th data-priority="7">Entrada</th>
-                            <th data-priority="8">Salida</th>
-                            <th data-priority="9">Monto</th>
-                            <th data-priority="10"></th>
+                        <tr class="bg-indigo-400 bg-opacity-100 text-white border border-gray-400">
+                            <th class="border border-gray-400" data-priority="1">Fecha</th>
+                            <th class="border border-gray-400" data-priority="2">N° Voucher</th>
+                            <th class="border border-gray-400" data-priority="3">N° Cheque</th>
+                            <th class="border border-gray-400" data-priority="4">C/P</th>
+                            <th class="border border-gray-400" data-priority="5">Nombres y Apellidos</th>
+                            <th class="border border-gray-400" data-priority="6">Detalle</th>
+                            <th class="border border-gray-400" data-priority="7">Entrada</th>
+                            <th class="border border-gray-400" data-priority="8">Salida</th>
+                            <th class="border border-gray-400" data-priority="9">Monto</th>
+                            <th class="border border-gray-400" data-priority="10"></th>
                             
                         </tr>
                         
@@ -47,19 +48,19 @@
                         
 					<tbody>
                         <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>   
-                        <tr>
+                        <tr class="border border-gray-400">
                             
             
-                                <!-- <td><?php echo e($post-> Fecha); ?></td> -->
-                                <td><?php echo e($post-> Voucher); ?></td>
-                                <!-- <td><?php echo e($post-> Cheque); ?></td>
-                                <td><?php echo e($post-> CP); ?></td>
-                                <td><?php echo e($post-> Nombre); ?></td>
-                                <td><?php echo e($post-> Detalle); ?></td> -->
-                                <td><?php echo e($post-> Entrada); ?></td>
-                                <td><?php echo e($post-> Salida); ?></td>
-                                <td><?php echo e($post-> Monto); ?></td>
-                                <td><a style="color : red " class="inline-flex items-center text-xs font-semibold tracking-widest text-center uppercase transition duration-150 ease-in-out dark:text-slate-400 text-slate-500 hover:text-slate-600 dark:hover:text-slate-500 focus:outline-none focus:border-slate-200" href="<?php echo e(route('posts.editar', $post)); ?>">Editar</a></td>
+                                <td class="border border-gray-400"><?php echo e($post-> Fecha); ?></td>
+                                <td class="border border-gray-400"><?php echo e($post-> Voucher); ?></td>
+                                <td class="border border-gray-400"><?php echo e($post-> Cheque); ?></td>
+                                <td class="border border-gray-400"><?php echo e($post-> CP); ?></td>
+                                <td class="border border-gray-400"><?php echo e($post-> Nombre); ?></td>
+                                <td class="border border-gray-400"><?php echo e($post-> Detalle); ?></td>
+                                <td class="border border-gray-400"><?php echo e($post-> Entrada); ?></td>
+                                <td class="border border-gray-400"><?php echo e($post-> Salida); ?></td>
+                                <td class="border border-gray-400"><?php echo e($post-> Monto); ?></td>
+                                <td class="border border-gray-400"><a style="color : red " class="inline-flex items-center text-xs font-semibold tracking-widest text-center uppercase transition duration-150 ease-in-out dark:text-slate-400 text-slate-500 hover:text-slate-600 dark:hover:text-slate-500 focus:outline-none focus:border-slate-200" href="<?php echo e(route('posts.editar', $post)); ?>">Editar</a></td>
 
                             
                         </tr>

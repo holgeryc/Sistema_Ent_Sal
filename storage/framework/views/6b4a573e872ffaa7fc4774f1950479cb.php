@@ -8,7 +8,7 @@
     
     
     <h1 class="my-4 font-serif text-3xl text-center text-sky-600 dark:text-sky-500">Crear nuevo formulario</h1>
-    <form class="max-w-xl px-8 py-4 mx-auto bg-white rounded shadow dark:bg-slate-800" action="<?php echo e(route('posts.store')); ?>" method="POST">
+    <form class="max-w-xl px-8 py-4 mx-auto bg-white rounded shadow dark:bg-slate-800" action="<?php echo e(route('posts.storeS')); ?>" method="POST">
     
         <?php echo csrf_field(); ?>
         <label for="">
@@ -27,8 +27,8 @@ unset($__errorArgs, $__bag); ?>
         </label><br>
 
         <label for="">
-            Voucher <br><input name="voucher" type="text" value="<?php echo e(old('voucher')); ?>">
-            <?php $__errorArgs = ['voucher'];
+            Cheque<br><input name="cheque" type="text" value="<?php echo e(old('cheque')); ?>">
+            <?php $__errorArgs = ['cheque'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -42,8 +42,38 @@ unset($__errorArgs, $__bag); ?>
         </label><br>
 
         <label for="">
-            Entrada <br><input name="entrada" type="float" value="<?php echo e(old('entrada')); ?>">
-            <?php $__errorArgs = ['entrada'];
+            C/P<br><input name="cp" type="text" value="<?php echo e(old('cp')); ?>">
+            <?php $__errorArgs = ['cp'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                <br>
+                <small style="color : red "><?php echo e($message); ?></small>
+            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+        </label><br>
+
+        <label for="">
+            Nombre <br><input name="nombre" type="text" value="<?php echo e(old('nombre')); ?>">
+            <?php $__errorArgs = ['nombre'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                <br>
+                <small style="color : red "><?php echo e($message); ?></small>
+            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+        </label><br>
+
+        <label for="">
+            Detalle <br><input name="detalle" type="text" value="<?php echo e(old('detalle')); ?>">
+            <?php $__errorArgs = ['detalle'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -70,21 +100,6 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
         </label><br>
-
-        <label for="">
-            Monto <br><input name="monto" type="float"  value="<?php echo e(old('monto')); ?>" disabled>
-            <!-- <?php $__errorArgs = ['monto'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                <br>
-                <small style="color : red "><?php echo e($message); ?></small>
-            <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?> -->
-        </label><br>
         
         <div class="flex items-center justify-between mt-4">
 
@@ -96,8 +111,4 @@ unset($__errorArgs, $__bag); ?> -->
         </div>
     </form>
 <?php $__env->stopSection(); ?>
-
-
-
-
-<?php echo $__env->make('Diseños.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Sistema_Ent_Sal\resources\views/posts/formulario.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('Diseños.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Sistema_Ent_Sal\resources\views/posts/formularioS.blade.php ENDPATH**/ ?>

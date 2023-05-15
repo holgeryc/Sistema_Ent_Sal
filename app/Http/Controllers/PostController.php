@@ -29,9 +29,8 @@ class PostController extends Controller
         return view('posts.formularioS');
     }
 
-    public function storeE(Request $request){
+    public function store(Request $request){
         
-        // $dato=Post::find(1);
         $anterior = Post::latest()->first();
         echo $anterior->Monto;
         $valor=floatval($anterior->Monto);
@@ -41,73 +40,69 @@ class PostController extends Controller
             'nombre' => ['required'],
             'detalle' => ['required'],
         ]);
-        
-        
-        $resultado = $valor+ $request->entrada ;
-        
-        
-        // $resultado= ($request->entrada)+($request->salida);
-        $post= new Post();
-        $post->Fecha=$request->fecha;
-        $post->Voucher=$request->voucher;
-        $post->Nombre=$request->nombre;
-        $post->Detalle=$request->detalle;
-        $post->Entrada=$request->entrada;
-        $post->Monto=$resultado;
-        $post->save();
-        session()->flash('status', 'Datos creados');
-        return $request;
-    }
+        if (is_null($request->voucher)) {
+            $resultado = $valor- $request->salida ;
+            // $resultado= ($request->entrada)+($request->salida);
+            $post= new Post();
+            $post->Fecha=$request->fecha;
+            $post->Cheque=$request->cheque;
+            $post->CP=$request->cp;
+            $post->Nombre=$request->nombre;
+            $post->Detalle=$request->detalle;
+            $post->Salida=$request->salida;
+            $post->Monto=$resultado;
+            $post->save();
+            session()->flash('status', 'Datos creados');
+            return $request;
+        } else {
+            $resultado = $valor+ $request->entrada ;
+            
+            $post= new Post();
+            $post->Fecha=$request->fecha;
+            $post->Voucher=$request->voucher;
+            $post->Nombre=$request->nombre;
+            $post->Detalle=$request->detalle;
+            $post->Entrada=$request->entrada;
+            $post->Monto=$resultado;
+            $post->save();
+            session()->flash('status', 'Datos creados');
+            return $request;
 
-    // public function store()
-    // {
-    //     $this->validate([
-	// 	'Fecha' => 'required',
-	// 	'RUC_Instituto' => 'required',
-	// 	'Activado' => 'required',
+        
+        
+        
+    }
+}
+    // public function storeS(Request $request){
+        
+    //     // $dato=Post::find(1);
+    //     $anterior = Post::latest()->first();
+    //     echo $anterior->Monto;
+    //     $valor=floatval($anterior->Monto);
+    //     $resultado='';
+    //     $request->validate([
+    //         'fecha' => ['required'],
+    //         'nombre' => ['required'],
+    //         'detalle' => ['required'],
     //     ]);
-	// 	$registroAnterior = Registro::where('RUC_Instituto', $this->RUC_Instituto)
-    //                        ->where('Fecha', '<=', $this->Fecha)
-    //                        ->orderByDesc('id')
-    //                        ->first();
-
-	// 	if (!$registroAnterior) {
-    // 		$saldoAnterior = 0;
-	// 	} else {
-   	// 		$saldoAnterior = $registroAnterior->Saldo;
-	// 	}
-	// 	$Saldo = $saldoAnterior + $this->Entrada - $this->Salida;
+        
+        
+    //     $resultado = $valor- $request->salida ;
+        
+        
+    //     // $resultado= ($request->entrada)+($request->salida);
+    //     $post= new Post();
+    //     $post->Fecha=$request->fecha;
+    //     $post->Cheque=$request->cheque;
+    //     $post->CP=$request->cp;
+    //     $post->Nombre=$request->nombre;
+    //     $post->Detalle=$request->detalle;
+    //     $post->Salida=$request->salida;
+    //     $post->Monto=$resultado;
+    //     $post->save();
+    //     session()->flash('status', 'Datos creados');
+    //     return $request;
     // }
-    public function storeS(Request $request){
-        
-        // $dato=Post::find(1);
-        $anterior = Post::latest()->first();
-        echo $anterior->Monto;
-        $valor=floatval($anterior->Monto);
-        $resultado='';
-        $request->validate([
-            'fecha' => ['required'],
-            'nombre' => ['required'],
-            'detalle' => ['required'],
-        ]);
-        
-        
-        $resultado = $valor- $request->salida ;
-        
-        
-        // $resultado= ($request->entrada)+($request->salida);
-        $post= new Post();
-        $post->Fecha=$request->fecha;
-        $post->Cheque=$request->cheque;
-        $post->CP=$request->cp;
-        $post->Nombre=$request->nombre;
-        $post->Detalle=$request->detalle;
-        $post->Salida=$request->salida;
-        $post->Monto=$resultado;
-        $post->save();
-        session()->flash('status', 'Datos creados');
-        return $request;
-    }
 
     public function editar(Post $post){
         return view('posts.editar', ['post'=>$post]);
